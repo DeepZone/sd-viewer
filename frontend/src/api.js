@@ -1,4 +1,4 @@
-const API_BASE = import.meta.env.VITE_API_BASE || "https://backend.noisens.de";
+const API_BASE = import.meta.env.VITE_API_BASE || "/api";
 
 export async function uploadSupportFile(file) {
   const fd = new FormData();
