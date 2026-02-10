@@ -19,7 +19,7 @@ services:
     build: ./frontend
     environment:
       # Frontend talks to backend directly (no reverse proxy needed here)
-      VITE_API_BASE: "http://192.168.59.110:8088"
+      VITE_API_BASE: "http://192.168.59.111:8088"
     ports:
       - "8080:8080"
     depends_on:
