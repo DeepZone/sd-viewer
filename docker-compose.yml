@@ -1,0 +1,26 @@
+services:
+  backend:
+    build: ./backend
+    environment:
+      # Ollama via your existing reverse proxy (SSL/TLS terminates there)
+      OLLAMA_BASE_URL: "https://aiapi.noisens.de"
+      OLLAMA_BASIC_USER: "CHANGE_ME"
+      OLLAMA_BASIC_PASS: "CHANGE_ME"
+      OLLAMA_MODEL: "qwen2.5:7b"
+
+      DATA_DIR: "/data"
+      MAX_UPLOAD_BYTES: "20000000"
+    volumes:
+      - ./data:/data
+    ports:
+      - "8088:8088"
+
+  frontend:
+    build: ./frontend
+    environment:
+      # Frontend talks to backend directly (no reverse proxy needed here)
+      VITE_API_BASE: "http://localhost:8088"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - backend
