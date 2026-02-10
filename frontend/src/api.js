@@ -1,4 +1,7 @@
-const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:8088";
+const DEFAULT_API =
+  `${window.location.protocol}//${window.location.hostname}:8088`;
+
+const API_BASE = import.meta.env.VITE_API_BASE || DEFAULT_API;
 
 export async function uploadSupportFile(file) {
   const fd = new FormData();
