@@ -19,7 +19,7 @@ services:
     build: ./frontend
     environment:
       # Frontend talks to backend directly (no reverse proxy needed here)
-      VITE_API_BASE: "https://backend.noisens.de"
+      VITE_API_BASE: "/api"
     ports:
       - "8080:8080"
     depends_on:
