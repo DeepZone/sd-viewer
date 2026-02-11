@@ -57,7 +57,7 @@ async def llm_report(rid: str):
         raise HTTPException(status_code=404, detail="Nicht gefunden")
 
     report = build_report(text)
-    excerpt = text[:6000]  # keep prompt bounded
+    excerpt = text[:1500]  # keep prompt bounded
 
     try:
         resp = await ollama_analyze(report, excerpt)
